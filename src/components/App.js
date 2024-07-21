@@ -97,9 +97,11 @@ export default function App() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:9000/questions")
+    fetch("https://mocki.io/v1/663e1a2c-fdcb-46e5-b5d9-64f5d0b0ac2b")
       .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .then((data) =>
+        dispatch({ type: "dataReceived", payload: data.questions })
+      )
       .catch((err) => dispatch({ type: "dataFailed" }));
   }, []);
   return (
